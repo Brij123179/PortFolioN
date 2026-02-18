@@ -497,12 +497,40 @@ On very large screens (e.g., 4K monitors), content would stretch uncomfortably w
 
 ## 7. Visual Documentation (Screenshots)
 
-> **Note:** Screenshots should be taken after running the project in a browser and saved to the `screenshots/` folder.
+All screenshots below were captured from the live running application in Google Chrome.
 
-- **Desktop View** (`screenshots/desktop.png`): Shows the full-width layout with the sticky header, about section, skills grid (4+ columns), and contact form.
-- **Mobile View** (`screenshots/mobile.png`): Shows the stacked header, centered nav links, 2-column skills grid, and full-width contact form at a viewport of ~375px (iPhone SE size).
-- **Hover States** (`screenshots/hover-states.png`): Shows a skill card lifted with an indigo border, and a nav link highlighted in indigo.
-- **Form Focus** (`screenshots/form-focus.png`): Shows an input field with the indigo border and glow ring when focused.
+### Desktop View — Full Layout
+The full-width layout showing the sticky glassmorphism header, About section with profile image, Skills grid, and Contact form.
+
+![Desktop View - Full Page](images/Screenshot%202026-02-18%20212104.png)
+
+---
+
+### Skills Section — CSS Grid in Action
+The Skills section demonstrating the `repeat(auto-fit, minmax(150px, 1fr))` CSS Grid layout with multiple columns on desktop.
+
+![Skills Grid - Desktop](images/Screenshot%202026-02-18%20212127.png)
+
+---
+
+### Contact Form — Styled Inputs & Button
+The Contact form showing the dark-themed input fields, labels, and the indigo "Send Message" button.
+
+![Contact Form Section](images/Screenshot%202026-02-18%20212148.png)
+
+---
+
+### Hover Effect — Skill Card Lift
+A skill card in its hovered state: lifted 5px upward (`translateY(-5px)`) with an indigo border highlight.
+
+![Skill Card Hover Effect](images/Screenshot%202026-02-18%20212218.png)
+
+---
+
+### Mobile View — Responsive Layout (≤ 768px)
+The layout at mobile viewport width showing the stacked vertical header, centered navigation links, and 2-column skills grid triggered by the `@media (max-width: 768px)` query.
+
+![Mobile Responsive View](images/Screenshot%202026-02-18%20212225.png)
 
 ---
 
