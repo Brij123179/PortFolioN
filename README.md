@@ -1,119 +1,34 @@
-# 🌐 Brij Patel — Personal Portfolio Website
+# Advanced Portfolio with CSS Grid & Javascript
 
-A modern, responsive personal portfolio website built with **HTML5** and **CSS3**. This project demonstrates core front-end web development skills including semantic HTML, CSS layout systems (Flexbox & Grid), responsive design, and interactive micro-animations.
+## Project Overview
+This project represents a fully functional, highly interactive, and responsive portfolio. It integrates fundamental layout structures (CSS Grid and Flexbox), robust theming capabilities (CSS variables), sophisticated interactions (DOM manipulation and animations), and standardized CSS paradigms (BEM). The latest update adds an advanced masonry-style CSS Grid Gallery and a multi-column Services layout.
 
----
+## Setup Instructions
+1.  **Clone or Download the Repository:** Obtain the project files to your local machine (`git clone`).
+2.  **Open the Project:** Navigate to the project directory that contains `index.html`.
+3.  **Launch the site:** Open `index.html` in your default web browser. For developers, a local server (like Live Server extension or `python -m http.server`) is recommended to prevent any strict MIME-type issues on deep assets, though not strictly required.
 
-## ✨ Features
+## Code Structure
+The codebase follows a modular structure separated by concern:
+-   `/index.html`: The semantic HTML layout, implementing BEM classes (`Block__Element--Modifier`).
+-   `/css/`: The central stylesheet directory.
+    -   `main.css`: Core design system, resets, and CSS variables (Theming anchors).
+    -   `layout.css`: Structural Grid and Flexbox frameworks for each distinct section.
+    -   `animations.css`: Keyframe definitions, transitions, and hover states.
+-   `/js/`: Interactivity scripts.
+    -   `theme-switcher.js`: Manages the Dark/Light mode toggle and its persistence via LocalStorage.
+    -   `main.js`: Contains logic for form validation and DOM manipulation (e.g., Read More logic).
+-   `/screenshots/`: Visual evidence of the application in various states. Includes `dark-mode.png` and `light-mode.png`.
 
-- **Sticky Navigation Header** with a glassmorphism (frosted-glass) effect using `backdrop-filter`.
-- **About Section** with a circular profile image and a smooth scale-on-hover animation.
-- **Skills Section** using a fully responsive CSS Grid that auto-adjusts columns based on screen width.
-- **Contact Form** with styled inputs and an indigo focus-ring effect for accessibility.
-- **Hover Micro-interactions** on all interactive elements (links, cards, buttons, profile image).
-- **Responsive Layout** that adapts seamlessly from desktop to mobile using a `@media` query.
-- **Dark Theme** with a consistent color palette defined via CSS Custom Properties (variables).
-- **Custom Typography** using the *Inter* font from Google Fonts.
+## Visual Details
 
----
+### Dark Theme Preview
+![Dark Mode Screenshot](screenshots/dark-mode.png)
 
-## 🚀 Getting Started
+### Light Theme Preview
+![Light Mode Screenshot](screenshots/light-mode.png)
 
-### Prerequisites
-- A modern web browser (Chrome, Edge, or Firefox recommended).
-- An internet connection (required to load the Google Fonts CDN).
-- *(Optional)* [VS Code](https://code.visualstudio.com/) with the [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) extension for a better development experience.
-
-### Installation
-
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/Brij123179/PortFolioN.git
-   ```
-
-2. **Navigate into the project folder:**
-   ```bash
-   cd PortFolioN
-   ```
-
-3. **Open the website:**
-   - Simply double-click `index.html`, **OR**
-   - In VS Code, right-click `index.html` → **"Open with Live Server"**.
-
-No build steps, no `npm install`, no configuration needed. It just works.
-
----
-
-## 📁 Project Structure
-
-```
-PortFolioN/
-├── index.html          # Main HTML file — page structure and content
-├── style.css           # External stylesheet — all visual design and layout rules
-├── README.md           # This file — project overview and setup guide
-├── documentation.md    # Detailed technical documentation and CSS concept explanations
-└── images/
-    └── profile.svg     # Profile picture (SVG for crisp rendering at any size)
-```
-
----
-
-## 🛠️ Technologies Used
-
-| Technology | Version | Purpose |
-|---|---|---|
-| HTML5 | — | Semantic page structure (`<header>`, `<nav>`, `<main>`, `<section>`, `<footer>`) |
-| CSS3 | — | Styling, layout (Flexbox & Grid), animations, and responsive design |
-| Google Fonts (Inter) | CDN | Modern, screen-optimized typography |
-
-**No JavaScript. No frameworks. No dependencies.**
-
----
-
-## 🎨 CSS Techniques Demonstrated
-
-| Technique | Where Used |
-|---|---|
-| **CSS Custom Properties** | `:root` block — defines the entire color scheme and font |
-| **Flexbox** | Navigation bar (logo + links), About section (image + bio) |
-| **CSS Grid** | Skills section — `repeat(auto-fit, minmax(150px, 1fr))` |
-| **CSS Transitions** | All hover effects — smooth 0.3s animations |
-| **Media Queries** | `@media (max-width: 768px)` — mobile layout adjustments |
-| **Pseudo-classes** | `:hover` on links/cards/buttons, `:focus` on form inputs |
-| **Glassmorphism** | Sticky header — `backdrop-filter: blur(10px)` |
-| **Box Model** | `box-sizing: border-box` applied globally |
-
----
-
-## 📱 Responsive Breakpoints
-
-| Screen Size | Behavior |
-|---|---|
-| **Desktop** (> 768px) | Full horizontal navigation, multi-column skills grid |
-| **Mobile** (≤ 768px) | Stacked vertical header, centered nav links, 2-column skills grid |
-
----
-
-## ✅ Validation & Testing
-
-- **HTML5** — Validated with the [W3C Markup Validator](https://validator.w3.org/). ✅ No errors.
-- **CSS3** — Validated with the [W3C CSS Validator (Jigsaw)](https://jigsaw.w3.org/css-validator/). ✅ No errors.
-- **Browsers Tested** — Google Chrome, Microsoft Edge, Mozilla Firefox.
-- **Devices Tested** — Desktop (1080p), iPad Air (820px), iPhone SE (375px) via Chrome DevTools.
-
----
-
-## 📄 Documentation
-
-For a detailed explanation of every CSS concept used in this project — including how Flexbox, Grid, transitions, media queries, and CSS variables work — please read **[documentation.md](./documentation.md)**.
-
----
-
-## 👤 Author
-
-**Brij Patel**
-- GitHub: [@Brij123179](https://github.com/Brij123179)
-
----
-
-*© 2026 Brij Patel. All rights reserved.*
+## Technical Highlights
+-   **CSS Layouts**: Relies heavily on Grid and Flexbox for native wrapping and positioning.
+-   **Javascript Modules**: Independent scripts loaded sequentially, providing resilient user inputs.
+-   **Methodology Practice**: Full adherence to BEM naming patterns for scalable UI engineering.
