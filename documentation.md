@@ -33,14 +33,18 @@ Real-world screenshots validating the architecture have been generated and pushe
 ## Technical Details
 
 ### Architecture & Layout Decisions
--   **CSS Grid (Auto-Responsive Patterns):** Sections like "Services", "Projects" and "Skills" rely on declarative `grid-template-columns: repeat(auto-fit, minmax(280px, 1fr))`. This instructs the browser layout engine to wrap columns seamlessly without needing to micromanage `@media` query breakpoints.
--   **Masonry Gallery (Advanced Layout):** The new "Image Gallery" implements advanced Grid spanning (`grid-column: span 2; grid-row: span 2`) on specific elements to generate an interlocking layout often seen in modern design portfolios.
--   **Methodology:** All classes utilize BEM (Block Element Modifier). Example: `.service-card__icon`. This isolates layout logic from presentation, removing catastrophic cascading failures and eliminating dependency on `!important` flags.
--   **CSS Variables:** Variables like `--color-primary` define the root of the layout. The `data-theme="dark"` attribute switches base CSS custom property definitions, executing instant, calculation-free theme swaps.
+-   **CSS Grid (Auto-Responsive Patterns):** Sections like "Services", "Projects" and "Skills" rely on declarative `grid-template-columns: repeat(auto-fit, minmax(280px, 1fr))`. This instructs the browser layout engine to wrap columns seamlessly without needing to micromanage `@media` query breakpoints. It fits as many 280-pixel columns into a row as possible and stretches them out (`1fr`) to fill remaining space. Below mobile layout sizes, it automatically stacks them cleanly.
+-   **Masonry Gallery (Advanced Layout):** The new "Image Gallery" implements advanced Grid spanning (`grid-column: span 2; grid-row: span 2`) on specific elements to generate an interlocking mosaic pattern often seen in modern design portfolios.
+-   **CSS Flexbox:** Applied primarily to one-dimensional axes where precise alignment is necessary. Examples include perfectly placing the navigation menu items natively adjacent to the top-level logo component using `justify-content: space-between` and `align-items: center`.
+-   **BEM Methodology:** All HTML class names strictly utilize BEM conventions (e.g., Block: `.service-card`, Element: `.service-card__icon`, Modifier: `.btn--primary`). This system completely isolates layouts dynamically ensuring styling does not capriciously break logic later due to aggressive "cascading" rules and guarantees elements remain predictable and modular.
+-   **State-of-the-Art Theming (CSS Variables):** Rather than creating duplicate "light" and "dark" style rulesheets, the core theme properties are mounted directly onto the `:root` pseudo-class (e.g., `--color-primary`, `--color-background`). Instantly exchanging these properties dynamically using the `[data-theme="dark"]` override completely updates the site's palette without writing custom queries or loading massive new files.
+-   **Advanced Animations:**
+    -   *Staggered Keyframes:* The load logic for cards includes `@keyframes fadeInUp` with precise `:nth-child()` sequence delays. This ensures cards visibly load in an appealing waterfall presentation rather than spontaneously populating content.
+    -   *Continuous Transforms:* A `float` keyframe using `translateY` ensures the avatar remains playfully in mid-air natively without utilizing JavaScript timers.
 
 ### Javascript Implementation
--   **DOM Manipulation & Validation:** The contact form prevents native browser submission until all requirements are met: name length > 3, generic regex matching for email configuration, and message > 10 characters.
--   **LocalStorage Hydration:** On initial load, the browser queries `localStorage.getItem('theme')` to hydrate the DOM, preventing a Flash of Unstyled Content (FOUC).
+-   **DOM Manipulation & Validation (`main.js`):** Client-side validations exist to capture user mistakes prematurely before hitting unready or non-existent backend systems. Ensures names are >3 characters, messages are >10 characters, and emails trigger standard generic HTML5 patterns before updating explicit `.is-invalid` UI states to the viewport.
+-   **LocalStorage Hydration (`theme-switcher.js`):** Leverages explicit interactions via a click event listener on the Sun/Moon toggle. Once toggled, script swaps the active `[data-theme]` parameter on the body element. Critically, it executes a `localStorage.setItem('theme', ...)` function storing whether it prefers logic to persist the theme immediately without relying on backend session systems, drastically decreasing Flash of Unstyled Content (FOUC) anomalies.
 
 ## Testing Evidence
 -   **Functional Validation:** Verified form input captures empty strings, evaluates lengths properly, highlights `.is-invalid` borders automatically, and auto-hides success dialogs.
